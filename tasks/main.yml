@@ -4,13 +4,11 @@
 # Running on conductor to fix bridging issue - should be fixed by v1
 - name: Install packages based on package.json.
   delegate_to: localhost
-  npm:
+#  npm:
     path: /var/www/nodeapp
     registry: 'registry.npmjs.org'
   register: npm_install
   until: npm_install|success
-  retries: 5
-  delay: 10
 
 - name: Creating project_root directory
   file:
