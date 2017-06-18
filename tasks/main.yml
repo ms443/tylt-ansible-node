@@ -14,6 +14,5 @@
 - name: Install packages based on package.json.
   npm:
     path: /var/www/nodeapp
-    registry: "http://10.2.67.1:5080"
+    registry: "http://registry.npmjs.org/"
   register: npm_install
-  until: npm_install|success
