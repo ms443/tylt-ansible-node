@@ -2,14 +2,6 @@
 # tasks file for nodejs
 
 # Running on conductor to fix bridging issue - should be fixed by v1
-- name: Install packages based on package.json.
-  delegate_to: localhost
-#  npm:
-    path: /var/www/nodeapp
-    registry: 'registry.npmjs.org'
-  register: npm_install
-  until: npm_install|success
-
 - name: Creating project_root directory
   file:
     path: /var/www
@@ -18,3 +10,11 @@
 
 - name: Copy all node data
   command: cp -r /tmp/nodeapp/ /var/www
+
+- name: Install packages based on package.json.
+  delegate_to: localhost
+#  npm:
+    path: /var/www/nodeapp
+    registry: 'registry.npmjs.org'
+  register: npm_install
+  until: npm_install|success
