@@ -7,5 +7,5 @@ galaxy_info:
   
   galaxy_tags: []
 
-dependencies:
-  - geerlingguy.nodejs
+#dependencies:
+#  - geerlingguy.nodejs
