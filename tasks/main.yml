@@ -13,3 +13,7 @@
 - name: Install packages based on package.json.
   npm:
     path: /var/www/nodeapp
+  register: npm_install
+  until: npm_install|success
+  retries: 5
+  delay: 10
