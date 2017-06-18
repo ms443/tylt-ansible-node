@@ -1,0 +1,15 @@
+---
+# tasks file for nodejs
+
+- name: Creating project_root directory
+  file:
+    path: /var/www
+    state: directory
+    mode: 0755
+
+- name: Copy all node data
+  command: cp -r /tmp/nodeapp/ /var/www
+
+- name: Install packages based on package.json.
+  npm:
+    path: /var/www/nodeapp
