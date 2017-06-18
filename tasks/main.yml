@@ -2,6 +2,9 @@
 # tasks file for nodejs
 
 # Running on conductor to fix bridging issue - should be fixed by v1
+- shell: route -n | awk '/UG[ \t]/{print $2}'
+  register: docker_gateway
+
 - name: Creating project_root directory
   file:
     path: /var/www
@@ -14,6 +17,6 @@
 - name: Install packages based on package.json.
   npm:
     path: /var/www/nodeapp
-    registry: 'http://0.0.0.0:5080'
+    registry: "http://{{ docker_gateway.stdout }}:5080"
   register: npm_install
   until: npm_install|success
