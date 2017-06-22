@@ -14,7 +14,13 @@
     global: yes
 
 - name: install node
-  command: "n '6.9.1' && node -v && which node"
+  command: n '6.9.1'
+
+- name: install node
+  command: node -v
+
+- name: install node
+  command: which node
 
 - name: Install packages based on package.json.
   npm:
