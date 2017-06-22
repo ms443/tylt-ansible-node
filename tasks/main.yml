@@ -1,19 +1,4 @@
 ---
-# tasks file for nodejs
-#- name: Upgrade nodejs
-#  apt:
-#    name: nodejs
-#    update_cache: yes
-
-- name: Updates apt
-  command: ls -la /usr/bin/
-
-- name: Updates apt
-  command: ls -la /
-
-- name: Updates apt
-  command: ls -la /bin 
-
 - name: Creating project_root directory
   file:
     path: /var/www
@@ -22,6 +7,14 @@
 
 - name: Copy all node data
   command: cp -r /tmp/nodeapp/ /var/www
+
+- name: Install "n" node.js package globally.
+  npm:
+    name: n
+    global: yes
+
+- name: install node
+  command: n '6.9.1'
 
 - name: Install packages based on package.json.
   npm:
