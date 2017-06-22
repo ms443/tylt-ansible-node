@@ -6,7 +6,7 @@
 #    update_cache: yes
 
 - name: Updates apt
-  command: /usr/bin/apt-get update
+  command: ls -la /usr/bin/ 
 
 - name: Creating project_root directory
   file:
