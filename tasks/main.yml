@@ -10,13 +10,6 @@
 - name: Copy all node data
   command: cp -r /tmp/nodeapp/ /var/www
 
-- name: Updating node version 
-  npm:
-    name: node
-    version: 'v6.9.1'
-    global: yes
-
-
 - name: Install packages based on package.json.
   npm:
     path: /var/www/nodeapp
