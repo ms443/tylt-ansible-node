@@ -1,10 +1,12 @@
 ---
 # tasks file for nodejs
-- name: Upgrade nodejs
-  apt:
-    name: nodejs
-    update_cache: yes
+#- name: Upgrade nodejs
+#  apt:
+#    name: nodejs
+#    update_cache: yes
 
+- name: Updates apt
+  command: apt-get update
 
 - name: Creating project_root directory
   file:
