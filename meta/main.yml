@@ -8,5 +8,4 @@ galaxy_info:
   galaxy_tags: []
 
 dependencies:
-  - { role: geerlingguy.nodejs,
-      ansible_os_family: "Debian" }
+  - { role: nodesource.node } 
