@@ -1,7 +1,6 @@
 ---
 # tasks file for nodejs
 
-# Running on conductor to fix bridging issue - should be fixed by v1
 - name: Creating project_root directory
   file:
     path: /var/www
@@ -10,6 +9,12 @@
 
 - name: Copy all node data
   command: cp -r /tmp/nodeapp/ /var/www
+
+- name: Updating node version 
+  npm:
+    name: node
+    version: 'v6.9.1'
+
 
 - name: Install packages based on package.json.
   npm:
