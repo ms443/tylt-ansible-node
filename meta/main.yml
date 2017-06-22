@@ -8,4 +8,4 @@ galaxy_info:
   galaxy_tags: []
 
 dependencies:
-  - geerlingguy.nodejs
+  - { role: geerlingguy.nodejs }
