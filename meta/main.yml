@@ -8,4 +8,5 @@ galaxy_info:
   galaxy_tags: []
 
 dependencies:
-  - { role: nodesource.node } 
+  - { role: nodesource.node,
+      become: yes } 
