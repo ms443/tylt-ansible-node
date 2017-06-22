@@ -8,5 +8,6 @@ galaxy_info:
   galaxy_tags: []
 
 dependencies:
-  - { role: nodesource.node,
-      become: yes } 
+  - { role: nvm,
+      nvm:
+        node_version: "6.9.1" } 
