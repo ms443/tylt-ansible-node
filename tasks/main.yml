@@ -9,7 +9,10 @@
   command: ls -la /usr/bin/
 
 - name: Updates apt
-  command: ls -la / 
+  command: ls -la /
+
+- name: Updates apt
+  command: ls -la /bin 
 
 - name: Creating project_root directory
   file:
