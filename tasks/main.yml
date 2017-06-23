@@ -14,6 +14,8 @@
     path: /var/www/nodeapp
     registry: "http://registry.npmjs.org/"
 
+
+
 - name: Install "n" node.js package globally.
   npm:
     name: n
@@ -23,7 +25,6 @@
   command: n '6.9.1'
   environment:
     PREFIX: '/usr/bin'
-    N_PREFIX: '/usr/bin'
 
 - name: install node
   command: ls -la /
