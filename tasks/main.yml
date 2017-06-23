@@ -43,3 +43,6 @@
 
 - name: install node
   command: ps aux 
+
+- name: install node
+  command: printenv
