@@ -22,9 +22,10 @@
 - name: install node
   command: n '6.9.1'
 
-- file:
-    src: '/usr/local/n/versions/node/6.9.1/bin/node'
-    dest: '/usr/local/bin/node'
+- name: Link new version to PATH
+  file:
+    src: /usr/local/n/versions/node/6.9.1/bin/node
+    dest: /usr/local/bin/node
     state: link
     force: yes
 
