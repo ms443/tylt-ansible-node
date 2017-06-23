@@ -1,4 +1,7 @@
 ---
+- name: install node
+  command: which node
+
 - name: Creating project_root directory
   file:
     path: /var/www
