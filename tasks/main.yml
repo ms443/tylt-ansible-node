@@ -14,35 +14,8 @@
     path: /var/www/nodeapp
     registry: "http://registry.npmjs.org/"
 
-- name: Install "n" node.js package globally.
-  npm:
-    name: n
-    global: yes
-
 - name: install node
-  command: n '6.9.1'
+  command: curl -L https://git.io/n-install | bash
 
-- name: Link new version to PATH
-  file:
-    src: /usr/local/n/versions/node/6.9.1/bin/node
-    dest: /usr/local/bin/node
-    state: link
-    force: yes
-
-- name: install node
-  command: ls -la /usr/local/n/versions/node/6.9.1/bin
-
-- name: install node
-  command: ls -la /usr/local/bin
-
-- name: install node
-  command: which node
-
-- name: install node
+- name: node
   command: node -v
-
-- name: install node
-  command: ps aux 
-
-- name: install node
-  command: printenv
