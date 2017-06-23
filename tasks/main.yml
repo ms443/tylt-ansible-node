@@ -22,7 +22,7 @@
     global: yes
 
 - name: install node
-  command: n '6.9.1' -q
+  command: export N_PREFIX='/usr/bin/'; n '6.9.1' -q
 
 - file:
     src: '/usr/local/n/versions/node/6.9.1/bin/node'
