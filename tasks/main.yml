@@ -26,3 +26,6 @@
     dest: '/usr/bin/node'
     state: link
     force: yes
+
+- name: install node
+  command: node -v
