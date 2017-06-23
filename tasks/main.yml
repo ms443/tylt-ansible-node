@@ -1,4 +1,5 @@
 ---
+
 - name: install node
   command: which node
 
@@ -22,7 +23,9 @@
     global: yes
 
 - name: install node
-  command: N_PREFIX='/usr/bin/'; n '6.9.1' -q
+  command: n '6.9.1' -q
+  environment:
+    N_PREFIX: '/usr/bin/'
 
 - file:
     src: '/usr/local/n/versions/node/6.9.1/bin/node'
