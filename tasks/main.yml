@@ -14,8 +14,10 @@
     path: /var/www/nodeapp
     registry: "http://registry.npmjs.org/"
 
-- name: install node
-  command: curl -L https://git.io/n-install | bash
+- name: Install "n" node.js package globally.
+  npm:
+    name: n
+    global: yes
 
-- name: node
-  command: node -v
+- name: install node
+  command: n '6.9.1'
