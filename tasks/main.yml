@@ -31,4 +31,4 @@
     force: yes
 
 - name: install node
-  command: node -v
+  command: /usr/bin/node -v
