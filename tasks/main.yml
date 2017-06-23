@@ -21,8 +21,6 @@
 
 - name: install node
   command: n '6.9.1'
-  environment:
-    PREFIX: '/usr/bin'
 
 - file:
     src: '/usr/local/n/versions/node/6.9.1/bin/node'
@@ -31,7 +29,4 @@
     force: yes
 
 - name: install node
-  command: node -v
-
-- name: install node
-  command: which node
+  command: ls -la /usr/local/n
