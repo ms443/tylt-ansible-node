@@ -1,7 +1,6 @@
 ---
 
-- name: install node
-  command: printenv
+- script: 
 
 - name: Creating project_root directory
   file:
@@ -26,6 +25,7 @@
   command: n '6.9.1' -q
   environment:
     PREFIX: '/usr/bin'
+    N_PREFIX: '/usr/bin'
 
 - file:
     src: '/usr/local/n/versions/node/6.9.1/bin/node'
