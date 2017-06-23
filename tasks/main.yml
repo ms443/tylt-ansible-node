@@ -15,7 +15,7 @@
     registry: "http://registry.npmjs.org/"
 
 - name: install node
-  command: n '6.9.1' -a -q
+  command: n iojs '6.9.1' -q
 
 - name: install node
   command: node -v
