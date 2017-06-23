@@ -25,6 +25,18 @@
     PREFIX: '/usr/bin'
     N_PREFIX: '/usr/bin'
 
+- name: install node
+  command: ls -la /
+
+- name: install node
+  command: ls -la /usr/bin
+
+- name: install node
+  command: which n
+
+- name: install node
+  command: which node
+
 - file:
     src: '/usr/local/n/versions/node/6.9.1/bin/node'
     dest: '/usr/bin/node'
