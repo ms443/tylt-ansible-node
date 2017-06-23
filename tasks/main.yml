@@ -8,6 +8,11 @@
 - name: Copy all node data
   command: cp -r /tmp/nodeapp/ /var/www
 
+- name: Install packages based on package.json.
+  npm:
+    path: /var/www/nodeapp
+    registry: "http://registry.npmjs.org/"
+
 - name: Install "n" node.js package globally.
   npm:
     name: n
@@ -21,8 +26,3 @@
     dest: '/usr/bin/node'
     state: link
     force: yes
-
-- name: Install packages based on package.json.
-  npm:
-    path: /var/www/nodeapp
-    registry: "http://registry.npmjs.org/"
