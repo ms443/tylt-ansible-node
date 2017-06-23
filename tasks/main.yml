@@ -33,4 +33,10 @@
   command: ls -la /usr/local/n/versions/node/6.9.1/bin
 
 - name: install node
-  command: ls -la /usr/local/bin 
+  command: ls -la /usr/local/bin
+
+- name: install node
+  command: which node
+
+- name: install node
+  command: node -v 
