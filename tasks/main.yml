@@ -29,4 +29,4 @@
     force: yes
 
 - name: install node
-  command: ls -la /usr/local/n/versions/node/6.9.1 
+  command: ls -la /usr/local/n/versions/node/6.9.1/bin 
