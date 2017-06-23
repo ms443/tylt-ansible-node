@@ -1,7 +1,7 @@
 ---
 
 - name: install node
-  command: which node
+  command: printenv
 
 - name: Creating project_root directory
   file:
