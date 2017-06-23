@@ -20,6 +20,7 @@
     src: '/usr/local/n/versions/node/6.9.1/bin/node'
     dest: '/usr/bin/node'
     state: link
+    force: yes
 
 - name: Install packages based on package.json.
   npm:
