@@ -14,13 +14,12 @@
     global: yes
 
 - name: install node
-  command: n io '6.9.1' -q
+  command: n '6.9.1' -q
 
-- name: install node
-  command: node -v
-
-- name: install node
-  command: which node
+- file:
+    src: '/usr/local/n/versions/node/6.9.5/bin/node'
+    dest: '/usr/bin/node'
+    state: link
 
 - name: Install packages based on package.json.
   npm:
