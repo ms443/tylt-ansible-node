@@ -40,9 +40,9 @@
 
 - file:
     src: '/usr/local/n/versions/node/6.9.1/bin/node'
-    dest: '/usr/bin/node'
+    dest: '/usr/local/bin/node'
     state: link
     force: yes
 
 - name: install node
-  command: /usr/bin/node -v
+  command: node -v
