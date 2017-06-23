@@ -25,7 +25,7 @@
 - name: install node
   command: n '6.9.1' -q
   environment:
-    N_PREFIX: '/usr/bin/'
+    N_PREFIX: '/usr/bin'
 
 - file:
     src: '/usr/local/n/versions/node/6.9.1/bin/node'
