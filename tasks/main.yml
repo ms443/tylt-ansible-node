@@ -1,7 +1,5 @@
 ---
 
-- script: 
-
 - name: Creating project_root directory
   file:
     path: /var/www
@@ -22,7 +20,7 @@
     global: yes
 
 - name: install node
-  command: n '6.9.1' -q
+  command: n '6.9.1'
   environment:
     PREFIX: '/usr/bin'
     N_PREFIX: '/usr/bin'
