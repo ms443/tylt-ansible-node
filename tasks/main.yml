@@ -3,6 +3,15 @@
   command: ls -la /
 
 - name: List root
+  command: ls -la /linuxrc
+
+- name: List root
+  command: ls -la /usr/bin
+
+- name: List root
+  command: ls -la /usr/local/bin
+
+- name: List root
   command: ls -la /usr
 
 - name: Creating project_root directory
