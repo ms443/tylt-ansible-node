@@ -7,4 +7,4 @@ galaxy_info:
   galaxy_tags: []
 
 dependencies:
-  - { role: JasonGiedymin.nodejs, ansible_os_family: "unknown"}
+  - { role: JasonGiedymin.nodejs, ansible_os_family: "unknown", nodejs_version: '6.9.1'}
