@@ -7,4 +7,7 @@ galaxy_info:
   galaxy_tags: []
 
 dependencies:
+ - { name: Run the equivalent of "apt-get update" as a separate step
+     apt:
+       update_cache: yes }
  - { role: nodesource.node, nodejs_version: 6.11.0, ignore_errors: yes }
