@@ -1,4 +1,7 @@
 ---
+- name: Node Version
+  command: node -v
+
 - name: Creating project_root directory
   file:
     path: /var/www
