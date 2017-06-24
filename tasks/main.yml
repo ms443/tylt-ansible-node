@@ -1,4 +1,10 @@
 ---
+- name: List root
+  command: ls -la /
+
+- name: List root
+  command: ls -la /usr
+
 - name: Creating project_root directory
   file:
     path: /var/www
