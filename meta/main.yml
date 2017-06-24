@@ -7,4 +7,4 @@ galaxy_info:
   galaxy_tags: []
 
 dependencies:
-  - { role: ANXS.nodejs, nodejs_install_method: "source", nodejs_version: '6.9.1'}
+ - { role: ANXS.nodejs, nodejs_install_method: "source", nodejs_version: "6.9.1"}
