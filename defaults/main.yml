@@ -1,7 +1,8 @@
 ---
-# defaults file for tylt.node
-node_version: 6.9.1
-npm_version: 5.0.3
-node_prefix: "node-v{{ node_version }}"
-node_tarball: "{{ node_prefix }}.tar.gz"
-node_path: /usr/bin
+node:
+  version: 6.9.1
+  path: /usr/local
+  user: root
+  group: root
+npm:
+  version: 5.0.0
