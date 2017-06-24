@@ -1,4 +1,13 @@
 ---
+- name: Install "n" node.js package globally.
+  npm:
+    name: n
+    global: yes
+
+- name: install node
+  command: n '6.9.1'
+  become_user: root
+
 - name: Creating project_root directory
   file:
     path: /var/www
