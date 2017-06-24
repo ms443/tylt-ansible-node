@@ -7,4 +7,4 @@ galaxy_info:
   galaxy_tags: []
 
 dependencies:
- - { role: nodesource.node }
+ - { role: nodesource.node, nodejs_version: 6.11.0 }
