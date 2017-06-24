@@ -6,3 +6,5 @@ galaxy_info:
   min_ansible_version: 1.2
   
   galaxy_tags: []
+  dependencies:
+    - { role: crushlovely.nodejs }

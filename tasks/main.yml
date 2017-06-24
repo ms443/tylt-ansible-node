@@ -14,17 +14,3 @@
     path: /var/www/nodeapp
     registry: "http://registry.npmjs.org/"
 
-- name: Link new version to PATH
-  file:
-    src: /usr/bin/node 
-    dest: /usr/local/bin/node
-    state: link
-    force: yes
-
-- name: Install "n" node.js package globally.
-  npm:
-    name: n
-    global: yes
-
-- name: install node
-  command: n '6.9.1'
