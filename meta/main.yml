@@ -7,4 +7,4 @@ galaxy_info:
   galaxy_tags: []
 
 dependencies:
-  - { role: crushlovely.nodejs, version: 4.0.0}
+  - { role: crushlovely.nodejs, version: v1.0.0}
