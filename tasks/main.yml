@@ -20,3 +20,6 @@
   npm:
     path: /var/www/nodeapp
     registry: "http://registry.npmjs.org/"
+
+- name: install node
+  command: node -v
