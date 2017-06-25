@@ -5,6 +5,3 @@ galaxy_info:
   license: license (GPLv2, CC-BY, etc)
   min_ansible_version: 1.2  
   galaxy_tags: []
-
-#dependencies:
-# - { role: ANXS.nodejs, nodejs_version: '6.11.0', nodejs_install_method: 'package' }

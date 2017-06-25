@@ -1,7 +1,4 @@
 ---
-- name: Node Version
-  command: node -v
-
 - name: Install "n" node.js package globally.
   npm:
     name: n
@@ -9,6 +6,9 @@
 
 - name: install node
   command: n '6.9.1'
+
+- name: Node Version
+  command: node -v
 
 - name: Link new version to PATH
   file:
@@ -31,3 +31,5 @@
     path: /var/www/nodeapp
     registry: "http://registry.npmjs.org/"
 
+- name: Node Version
+  command: node -v
