@@ -2,6 +2,11 @@
 - name: Node Version
   command: node -v
 
+- name: APT | Update the apt cache
+  apt:
+    update_cache: yes
+    allow_unauthenticated: yes 
+
 - name: Creating project_root directory
   file:
     path: /var/www
