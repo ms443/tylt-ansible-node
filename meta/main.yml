@@ -7,6 +7,5 @@ galaxy_info:
   galaxy_tags: []
 
 dependencies:
- - { role: angstwad.ubuntu_python_apt, ansible_os_family: 'Debian' }
  - { role: ANXS.apt } 
  - { role: ANXS.nodejs, nodejs_version: '6.11.0', nodejs_install_method: 'package' }
