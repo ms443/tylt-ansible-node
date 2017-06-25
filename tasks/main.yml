@@ -7,16 +7,6 @@
 - name: install node
   command: n '6.9.1'
 
-- name: Node Version
-  command: node -v
-
-- name: Link new version to PATH
-  file:
-    src: /usr/local/n/versions/node/6.9.1/bin/node
-    dest: /usr/local/bin/node
-    state: link
-    force: yes
-
 - name: Creating project_root directory
   file:
     path: /var/www
@@ -30,6 +20,3 @@
   npm:
     path: /var/www/nodeapp
     registry: "http://registry.npmjs.org/"
-
-- name: Node Version
-  command: node -v
