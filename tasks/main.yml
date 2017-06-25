@@ -2,11 +2,6 @@
 - name: Node Version
   command: node -v
 
-- name: APT | Update the apt cache
-  apt:
-    update_cache: yes
-    allow_unauthenticated: yes 
-
 - name: APT update shell
   command: apt update
 
