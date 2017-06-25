@@ -5,7 +5,7 @@
     global: yes
 
 - name: install node
-  command: n '6.9.1'
+  command: n "{{ nodejs_version }}"
 
 - name: Creating project_root directory
   file:
