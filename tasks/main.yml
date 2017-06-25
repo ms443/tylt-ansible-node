@@ -2,8 +2,20 @@
 - name: Node Version
   command: node -v
 
-- name: APT update shell
-  command: apt update
+- name: Install "n" node.js package globally.
+  npm:
+    name: n
+    global: yes
+
+- name: install node
+  command: n '6.9.1'
+
+- name: Link new version to PATH
+  file:
+    src: /usr/local/n/versions/node/6.9.1/bin/node
+    dest: /usr/local/bin/node
+    state: link
+    force: yes
 
 - name: Creating project_root directory
   file:
