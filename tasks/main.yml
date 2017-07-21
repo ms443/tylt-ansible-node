@@ -3,11 +3,12 @@
   apt:
     upgrade: yes
     update_cache: yes
+    allow_unauthenticated: true
 
 - name: Install rsync 
   apt:
     name: "{{ item }}"
-    allow_unauthenticated: yes
+    allow_unauthenticated: true
     force: yes
   with_items:
     - rsync
