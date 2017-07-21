@@ -1,8 +1,9 @@
 ---
-- name: ensure packages are installed
+- name: Install rsync 
   apt:
     name: "{{ item }}"
     allow_unauthenticated: yes
+    force: yes
   with_items:
     - rsync
 
