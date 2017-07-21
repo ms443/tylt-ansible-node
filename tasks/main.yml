@@ -1,10 +1,4 @@
 ---
-- name: ensure packages are installed
-  apt:
-    name: "{{ item }}"
-  with_items:
-    - rsync
-
 - name: Install "n" node.js package globally.
   npm:
     name: n
@@ -20,7 +14,7 @@
     mode: 0755
 
 - name: Copy all node data
-  command: rsync -au /tmp/nodeapp/ /var/www
+  command: cp -r /tmp/nodeapp/ /var/www
 
 - name: Install packages based on package.json.
   npm:
