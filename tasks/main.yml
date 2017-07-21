@@ -1,25 +1,17 @@
 ---
-- name: ensure apt cache is up to date
-  apt: update_cache=yes
-
-- name: Install rsync 
+- name: ensure packages are installed
   apt:
     name: "{{ item }}"
-    allow_unauthenticated: true
-    force: yes
   with_items:
     - rsync
 
-- name: Install node
-  apt:
-    name: "nodejs={{ nodejs_version | default('6.9.5') }}"
-    allow_unauthenticated: yes
+- name: Install "n" node.js package globally.
+  npm:
+    name: n
+    global: yes
 
-- name: Install additional packages 
-  apt:
-    name: "{{ item.key }}={{ item.value.version }}"
-  when: additional_packages
-  with_dict: "{{ additional_packages }}"
+- name: install node
+  command: n "{{ nodejs_version | default('6.9.5') }}"
 
 - name: Creating project_root directory
   file:
