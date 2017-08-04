@@ -1,11 +1,15 @@
 ---
-- name: Install "n" node.js package globally.
-  npm:
-    name: n
-    global: yes
+- name: Ensure packages are installed
+  apt:
+    name: "{{ item }}"
+  with_items:
+      - rsync
 
-- name: install node
-  command: n "{{ nodejs_version | default('6.9.5') }}"
+- name: Install additional packages 
+  apt:
+    name: "{{ item.key }}={{ item.value.version }}"
+  when: additional_packages
+  with_dict: "{{ additional_packages }}"
 
 - name: Creating project_root directory
   file:
@@ -14,7 +18,7 @@
     mode: 0755
 
 - name: Copy all node data
-  command: cp -r /tmp/nodeapp/ /var/www
+  command: rsync -au /tmp/nodeapp/ /var/www
 
 - name: Install packages based on package.json.
   npm:
