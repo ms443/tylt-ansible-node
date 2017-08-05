@@ -29,9 +29,9 @@
 - name: Ensure packages are installed
   apt:
     name: "{{ item }}"
+    update_cache: yes
   with_items:
       - rsync
-  update_cache: yes
 
 - name: Install additional packages 
   apt:
