@@ -45,9 +45,9 @@
     mode: 0755
 
 - name: Copy all node data
-  command: rsync -auR /tmp/nodeapp/ /var/www/
+  command: rsync -au /tmp/nodeapp/ /var/www/
 
 - name: Install packages based on package.json.
   npm:
-    path: /var/www/nodeapp
+    path: /var/www
     registry: "http://registry.npmjs.org/"
