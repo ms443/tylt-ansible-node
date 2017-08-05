@@ -26,18 +26,12 @@
     repo: 'deb-src https://deb.nodesource.com/node_6.x xenial main'
     state: present
 
-- name: Install Node.js
-  apt:
-    pkg:
-      - nodejs
-    state: installed
-    update_cache: yes
-
 - name: Ensure packages are installed
   apt:
     name: "{{ item }}"
   with_items:
       - rsync
+  update_cache: yes
 
 - name: Install additional packages 
   apt:
