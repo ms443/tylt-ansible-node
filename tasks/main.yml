@@ -45,7 +45,7 @@
     mode: 0755
 
 - name: Copy all node data
-  command: rsync -au /tmp/nodeapp/ /var/www/nodeapp/
+  command: rsync -auR /tmp/nodeapp/ /var/www/nodeapp/
 
 - name: Install packages based on package.json.
   npm:
