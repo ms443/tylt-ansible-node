@@ -26,11 +26,6 @@
     repo: 'deb-src https://deb.nodesource.com/node_6.x xenial main'
     state: present
 
-- name: Add NodeSource repository preferences
-  template:
-    src: etc/apt/preferences.d/deb_nodesource_com_node.pref.2
-    dest: /etc/apt/preferences.d/deb_nodesource_com_node.pref
-
 - name: Install Node.js
   apt:
     pkg:
