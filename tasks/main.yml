@@ -31,6 +31,7 @@
     name: "{{ item }}"
   with_items:
       - rsync
+      - git
 
 - name: Install additional packages 
   apt:
