@@ -46,7 +46,7 @@
     mode: 0755
 
 - name: Copy all node data
-  command: rsync -avuh /tmp/nodeapp/ /var/www/
+  command: rsync -avh /tmp/nodeapp/ /var/www/
 
 - name: Install packages based on package.json.
   npm:
