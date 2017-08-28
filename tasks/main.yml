@@ -52,3 +52,4 @@
   npm:
     path: /var/www
     registry: "http://registry.npmjs.org/"
+    global: yes
