@@ -1,7 +1,4 @@
 ---
-- name: "Install required python-minimal package"
-  raw: 'rm -fr /var/lib/apt/lists/* && apt-get clean && apt-get -o "Debug::Acquire::gpgv=true" update'
-
 - name: Ensure the system can use the HTTPS transport for APT
   stat:
     path: /usr/lib/apt/methods/https
@@ -28,6 +25,9 @@
   apt_repository:
     repo: 'deb-src https://deb.nodesource.com/node_6.x xenial main'
     state: present
+    
+- name: "Install required python-minimal package"
+  raw: 'apt-get clean && apt-get -o "Debug::Acquire::gpgv=true" update'
 
 - name: Ensure packages are installed
   apt:
