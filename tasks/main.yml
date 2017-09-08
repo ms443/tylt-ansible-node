@@ -1,4 +1,7 @@
 ---
+- name: "Update apt cache"
+  raw: 'ls -la /tmp && apt-get -o "dir::state::lists=/tmp" update'
+
 - name: Ensure the system can use the HTTPS transport for APT
   stat:
     path: /usr/lib/apt/methods/https
@@ -27,7 +30,7 @@
     state: present
     
 - name: "Install required python-minimal package"
-  raw: 'mkdir -p /tmp/partial && apt-get -o "dir::state::lists=/tmp" update'
+  raw: 'ls -la && apt-get -o "dir::state::lists=/tmp" update'
 
 - name: Ensure packages are installed
   apt:
