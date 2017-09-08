@@ -27,7 +27,7 @@
     state: present
     
 - name: "Install required python-minimal package"
-  raw: 'apt-get clean && rm -fr /var/lib/apt/lists && mkdir -p /var/lib/apt/lists/partial && apt-get clean && apt-get --allow-unauthenticated update'
+  raw: 'apt-get clean && rm -fr /var/lib/apt/lists && mkdir -p /var/lib/apt/lists/partial && apt-get clean && apt-get -o "dir::state::lists=/tmp" update'
 
 - name: Ensure packages are installed
   apt:
