@@ -1,6 +1,6 @@
 ---
 - name: "Update apt cache"
-  raw: 'ls -la /tmp && mkdir -p /tmp/partial && apt-get -o "dir::state::lists=/tmp" update'
+  raw: 'ls -la /tmp && mkdir -p /tmp/partial && apt-get -o "dir::state::lists=/tmp" -o "APT::Sandbox::User=root" update'
 
 - name: Ensure the system can use the HTTPS transport for APT
   stat:
