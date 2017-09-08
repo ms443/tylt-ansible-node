@@ -32,7 +32,6 @@
 - name: Ensure packages are installed
   apt:
     name: "{{ item }}"
-    upgrade: dist
   with_items:
       - rsync
       - git
