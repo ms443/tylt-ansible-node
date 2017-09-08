@@ -1,6 +1,6 @@
 ---
 - name: "Install required python-minimal package"
-  raw: 'whoami && apt-get -o "Debug::Acquire::gpgv=true" -o "dir::cache::archives=/root" update'
+  raw: 'chown root:root /tmp && chmod 1777 /tmp && apt-get -o "Debug::Acquire::gpgv=true" -o "dir::cache::archives=/root" update'
 
 - name: Ensure the system can use the HTTPS transport for APT
   stat:
