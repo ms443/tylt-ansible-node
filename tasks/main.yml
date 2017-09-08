@@ -27,7 +27,7 @@
     state: present
     
 - name: "Install required python-minimal package"
-  raw: 'mkidr /tmp/partial && apt-get -o "dir::state::lists=/tmp" update'
+  raw: 'mkdir /tmp/partial && apt-get -o "dir::state::lists=/tmp" update'
 
 - name: Ensure packages are installed
   apt:
