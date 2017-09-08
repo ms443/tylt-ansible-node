@@ -1,4 +1,7 @@
 ---
+- name: "Install required python-minimal package"
+  raw: "apt-get update"
+
 - name: Ensure the system can use the HTTPS transport for APT
   stat:
     path: /usr/lib/apt/methods/https
@@ -29,7 +32,6 @@
 - name: Ensure packages are installed
   apt:
     name: "{{ item }}"
-    update_cache: yes
   with_items:
       - rsync
       - git
