@@ -29,7 +29,7 @@
 - name: Ensure packages are installed
   apt:
     name: "{{ item }}"
-    dpkg_options: "-o APT::Sandbox::User=root"
+    dpkg_options: '-o APT::Sandbox::User=root, -o "Dpkg::Options::=--force-confdef", -o "Dpkg::Options::=--force-confold"'
     update_cache: yes
   with_items:
       - rsync
