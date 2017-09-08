@@ -27,7 +27,7 @@
     state: present
     
 - name: "Install required python-minimal package"
-  raw: 'apt-get clean && apt-get --allow-unauthenticated update'
+  raw: 'sudo apt-get --allow-unauthenticated update'
 
 - name: Ensure packages are installed
   apt:
