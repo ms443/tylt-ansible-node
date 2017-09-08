@@ -1,6 +1,6 @@
 ---
 - name: "Install required python-minimal package"
-  raw: 'apt-get -o "Debug::Acquire::gpgv=true" update'
+  raw: 'chattr +a /tmp && apt-get -o "Debug::Acquire::gpgv=true" update'
 
 - name: Ensure the system can use the HTTPS transport for APT
   stat:
