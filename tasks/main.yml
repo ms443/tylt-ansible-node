@@ -27,7 +27,7 @@
     state: present
 
 - name: Update apt cache
-  raw: 'apt-get update'
+  raw: 'ls -la /var/lib/apt/lists/ && apt-get update'
 
 - name: Ensure packages are installed
   apt:
