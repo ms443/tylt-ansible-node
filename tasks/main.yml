@@ -38,7 +38,7 @@
 
 - name: Install additional packages 
   apt:
-    name: "{{ item.key }}={{ item.value.version }}"
+    name: "{{ item.key }}"
   when: additional_packages
   with_dict: "{{ additional_packages }}"
 
