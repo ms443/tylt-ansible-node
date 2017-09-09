@@ -1,7 +1,4 @@
 ---
-- name: Update apt cache
-  raw: 'apt-get update'
-
 - name: Ensure the system can use the HTTPS transport for APT
   stat:
     path: /usr/lib/apt/methods/https
@@ -11,7 +8,6 @@
   apt:
     pkg: apt-transport-https
     state: installed
-    allow_unauthenticated: yes
   when: not apt_https_transport.stat.exists
 
 - name: Import the NodeSource GPG key into apt
