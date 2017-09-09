@@ -11,6 +11,7 @@
   apt:
     pkg: apt-transport-https
     state: installed
+    allow_unauthenticated: yes
   when: not apt_https_transport.stat.exists
 
 - name: Import the NodeSource GPG key into apt
