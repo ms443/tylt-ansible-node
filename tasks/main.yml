@@ -26,8 +26,11 @@
     repo: 'deb-src https://deb.nodesource.com/node_6.x xenial main'
     state: present
     
+- name: Add _apt user
+  raw: 'adduser --force-badname --system --home /nonexistent --no-create-home --quiet _apt'
+
 - name: Update apt cache
-  raw: 'apt-get -o "APT::Sandbox::User=root" update'
+  raw: 'apt-get -o update'
 
 - name: Ensure packages are installed
   apt:
