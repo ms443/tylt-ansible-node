@@ -27,7 +27,7 @@
     state: present
 
 - name: Update apt cache
-  raw: 'apt-get -o update'
+  raw: 'apt-get -o "APT::Sandbox::User=root" update'
 
 - name: Ensure packages are installed
   apt:
