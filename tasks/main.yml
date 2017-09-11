@@ -3,7 +3,7 @@
 #  raw: 'apt-get -o "APT::Sandbox::User=root" update'
 
 - name: Clean and Update cache
-  raw: 'cat /etc/apt/apt.conf.d/70debconf'
+  raw: 'echo "APT::Sandbox::User=root" >> /etc/apt/apt.conf.d/70debconf'
 
 - name: Ensure the system can use the HTTPS transport for APT
   stat:
