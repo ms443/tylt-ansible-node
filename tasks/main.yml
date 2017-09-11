@@ -1,21 +1,24 @@
 ---
-- name: Update apt cache
-  raw: 'apt-get -o "APT::Sandbox::User=root" update'
+#- name: Update apt cache
+#  raw: 'apt-get -o "APT::Sandbox::User=root" update'
+
+- name: Clean and Update cache
+  raw: 'apt-get clean; rm -fr /var/lib/apt/lists; mkdir -p /var/lib/apt/lists/partial; apt-get clean; apt-get update'
 
 - name: Ensure the system can use the HTTPS transport for APT
   stat:
     path: /usr/lib/apt/methods/https
   register: apt_https_transport
 
-#- name: Install HTTPS transport for APT
-#  apt:
-#    pkg: apt-transport-https
-#    state: installed
-#  when: not apt_https_transport.stat.exists
-
 - name: Install HTTPS transport for APT
-  raw: 'apt-get -o "APT::Sandbox::User=root" -y install apt-transport-https python-apt'
+  apt:
+    pkg: apt-transport-https
+    state: installed
   when: not apt_https_transport.stat.exists
+
+#- name: Install HTTPS transport for APT
+#  raw: 'apt-get -o "APT::Sandbox::User=root" -y install apt-transport-https python-apt'
+#  when: not apt_https_transport.stat.exists
 
 - name: Import the NodeSource GPG key into apt
   apt_key:
