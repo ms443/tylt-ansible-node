@@ -14,7 +14,7 @@
 #  when: not apt_https_transport.stat.exists
 
 - name: Install HTTPS transport for APT
-  raw: 'apt-get -o "APT::Sandbox::User=root" -y install apt-transport-https'
+  raw: 'apt-get -o "APT::Sandbox::User=root" -y install apt-transport-https python-apt'
   when: not apt_https_transport.stat.exists
 
 - name: Import the NodeSource GPG key into apt
