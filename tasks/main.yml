@@ -3,7 +3,7 @@
 #  raw: 'apt-get -o "APT::Sandbox::User=root" update'
 
 - name: Clean and Update cache
-  raw: 'apt-get clean; rm -fr /var/lib/apt/lists; mkdir -p /var/lib/apt/lists/partial; apt-get clean; ls -la /var/lib/apt/lists'
+  raw: 'apt-get clean; rm -fr /var/lib/apt/lists; mkdir -p /var/lib/apt/lists/partial; apt-get update; ls -la /var/lib/apt/lists'
 
 - name: Ensure the system can use the HTTPS transport for APT
   stat:
