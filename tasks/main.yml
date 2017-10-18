@@ -53,7 +53,7 @@
     mode: 0755
 
 - name: Copy all node data
-  command: rsync -auvh --delete --chown=root:root /tmp/nodeapp/ /var/www/
+  command: rsync -auvh --delete --chown=root:root /tmp/nodeapp/ /var/www/ --exclude /node_modules
 
 - name: Install packages based on package.json.
   npm:
