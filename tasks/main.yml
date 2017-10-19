@@ -38,7 +38,6 @@
   with_items:
       - rsync
       - git
-      - nodejs
 
 - name: Install additional packages 
   apt:
