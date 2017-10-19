@@ -46,6 +46,7 @@
   when: additional_packages
   with_dict: "{{ additional_packages }}"
   update_cache: yes
+  ignore_errors: True
 
 - name: Creating project_root directory
   file:
