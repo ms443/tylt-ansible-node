@@ -70,6 +70,7 @@
 
 - name: Install packages based on package.json.
   command: npm install --production
+    chdir: /var/www
   #npm:
   #  path: /var/www
   #  production: yes
