@@ -70,6 +70,7 @@
 
 - name: Install packages based on package.json.
   command: pwd && ls -la && npm install --production
+  args:
     chdir: /var/www
   #npm:
   #  path: /var/www
