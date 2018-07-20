@@ -69,7 +69,7 @@
   command: rsync -auvh --delete --chown=root:root /tmp/nodeapp/ /var/www/ --exclude /node_modules
 
 - name: Install packages based on package.json.
-  command: npm install --production
+  command: pwd && ls -la && npm install --production
     chdir: /var/www
   #npm:
   #  path: /var/www
