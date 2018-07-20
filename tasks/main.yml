@@ -48,6 +48,7 @@
   with_items:
       - rsync
       - git
+  update_cache: yes
 
 - name: Install additional packages 
   apt:
