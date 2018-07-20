@@ -67,11 +67,6 @@
 
 - name: Copy all node data
   command: rsync -auvh --delete --chown=root:root /tmp/nodeapp/ /var/www/ --exclude /node_modules
-  
-- name: pwd
-  command: pwd
-  args:
-    chdir: /var/www
 
 - name: Install packages based on package.json.
   command: npm install --production
