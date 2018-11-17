@@ -1,42 +1,4 @@
 ---
-
-- name: Ensure the system can use the HTTPS transport for APT
-  stat:
-    path: /usr/lib/apt/methods/https
-  register: apt_https_transport
-
-- name: Install HTTPS transport for APT
-  apt:
-    pkg: apt-transport-https
-    state: installed
-  when: not apt_https_transport.stat.exists
-
-- name: Import the NodeSource GPG key into apt
-  apt_key:
-    url: https://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0x1655A0AB68576280
-    id: "68576280"
-    state: present
-
-- name: Add NodeSource deb repository
-  apt_repository:
-    repo: 'deb https://deb.nodesource.com/node_6.x xenial main'
-    state: present
-
-- name: Add NodeSource deb-src repository
-  apt_repository:
-    repo: 'deb-src https://deb.nodesource.com/node_6.x xenial main'
-    state: present
-    
-- name: Add NodeSource deb repository
-  apt_repository:
-    repo: 'deb https://deb.nodesource.com/node_8.x xenial main'
-    state: present
-
-- name: Add NodeSource deb-src repository
-  apt_repository:
-    repo: 'deb-src https://deb.nodesource.com/node_8.x xenial main'
-    state: present
-
 - name: Ensure packages are installed
   apt:
     name: "{{ item }}"
@@ -68,9 +30,22 @@
   args:
     chdir: /var/www
 
+- name: Install default node node.js package.
+  command: npm install node@6.14.2 --unsafe-perm
+  args:
+    chdir: /var/www
+    
 - name: Install packages based on package.json.
   command: npm install --unsafe-perm
   args:
     chdir: /var/www
-    
 
+- name: Create symlinks to ruby and gem
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    state: link
+  with_items:
+    - { src: '/var/www/node_modules/node/bin/node', dest: '/opt/node/bin/node' }
