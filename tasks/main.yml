@@ -1,9 +1,4 @@
 ---
-- name: Use root as Sandbox user for apt
-  lineinfile:
-    dest: /etc/apt/apt.conf.d/70debconf
-    line: 'APT::Sandbox::User "root";'
-    state: present
 
 - name: Ensure the system can use the HTTPS transport for APT
   stat:
@@ -64,6 +59,10 @@
     path: /var/www
     state: directory
     mode: 0755
+    
+- name: Install "node-bin-setup" node.js package.
+  npm:
+    name: node-bin-setup
 
 - name: Copy all node data
   command: rsync -auvh --checksum --delete --chown=root:root /tmp/nodeapp/ /var/www/ --exclude node_modules
