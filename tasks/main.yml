@@ -64,6 +64,7 @@
   npm:
     name: node-bin-setup
     path: /var/www/node_modules
+    unsafe_perm: yes
 
 - name: Copy all node data
   command: rsync -auvh --checksum --delete --chown=root:root /tmp/nodeapp/ /var/www/ --exclude node_modules
