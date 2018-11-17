@@ -63,6 +63,7 @@
 - name: Install "node-bin-setup" node.js package.
   npm:
     name: node-bin-setup
+    path: /var/www/node_modules
 
 - name: Copy all node data
   command: rsync -auvh --checksum --delete --chown=root:root /tmp/nodeapp/ /var/www/ --exclude node_modules
