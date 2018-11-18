@@ -36,7 +36,7 @@
 
 
 - name: Install default node node.js package.
-  command: "npm install node@{{ node_version }} --unsafe-perm"
+  command: "npm install node@{{ node_version.stdout }} --unsafe-perm"
   args:
     chdir: /var/www
 
