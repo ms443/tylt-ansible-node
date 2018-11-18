@@ -31,7 +31,7 @@
     chdir: /var/www
 
 - name: Install default node node.js package.
-  command: npm install node@`node -p -e "require('./package.json').dependencies.node || '8.9.4'"` --unsafe-perm
+  command: nodeVersion=`node -p -e "require('./package.json').dependencies.node || '8.9.4'"` && npm install node@$nodeVersion --unsafe-perm
   args:
     chdir: /var/www
 
