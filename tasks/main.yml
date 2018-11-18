@@ -30,8 +30,13 @@
   args:
     chdir: /var/www
 
+- name: Get node version
+  command: node -p -e "require('/var/www/package.json').dependencies.node || '8.9.4'"
+  register: node_version
+
+
 - name: Install default node node.js package.
-  command: nodeVersion=`node -p -e "require('./package.json').dependencies.node || '8.9.4'"` && npm install node@$nodeVersion --unsafe-perm
+  command: "npm install node@{{ node_version }} --unsafe-perm"
   args:
     chdir: /var/www
 
