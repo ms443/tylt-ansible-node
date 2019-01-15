@@ -25,10 +25,10 @@
 - name: Copy all node data
   command: rsync -auvh --checksum --delete --chown=root:root /tmp/nodeapp/ /var/www/ --exclude node_modules
 
-- name: Install "node-bin-setup" node.js package.
-  command: npm install node-bin-setup --unsafe-perm
-  args:
-    chdir: /var/www
+#- name: Install "node-bin-setup" node.js package.
+#  command: npm install node-bin-setup --unsafe-perm
+#  args:
+#    chdir: /var/www
 
 - name: Get node version
   command: node -p -e "require('/var/www/package.json').dependencies.node || '8.9.4'"
