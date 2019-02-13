@@ -39,6 +39,7 @@
   command: "npm install node@{{ node_version.stdout }} --unsafe-perm"
   args:
     chdir: /var/www
+  ignore_errors: True
 
 - name: Create symlinks to ruby and gem
   file:
