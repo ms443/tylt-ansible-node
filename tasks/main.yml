@@ -29,6 +29,7 @@
   command: npm install node-bin-setup --unsafe-perm
   args:
     chdir: /var/www
+  ignore_errors: True
 
 - name: Get node version
   command: node -p -e "require('/var/www/package.json').dependencies.node || '8.9.4'"
@@ -39,7 +40,6 @@
   command: "npm install node@{{ node_version.stdout }} --unsafe-perm"
   args:
     chdir: /var/www
-  ignore_errors: True
 
 - name: Create symlinks to ruby and gem
   file:
