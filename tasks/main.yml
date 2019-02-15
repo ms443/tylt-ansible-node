@@ -35,10 +35,10 @@
   command: node -p -e "require('/var/www/package.json').dependencies.node || '8.9.4'"
   register: node_version
   
-- name: Clean babel-eslint path
-  file:
-    state: absent
-    path: /var/www/node_modules/babel-eslint/
+#- name: Clean babel-eslint path
+#  file:
+#    state: absent
+#    path: /var/www/node_modules/babel-eslint/
 
 - name: Install default node node.js package.
   command: "npm install node@{{ node_version.stdout }} --unsafe-perm"
