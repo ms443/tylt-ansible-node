@@ -39,12 +39,7 @@
   command: "npm install node@{{ node_version.stdout }} --unsafe-perm"
   args:
     chdir: /var/www
-
-- name: Install packages based on package.json.
-  command: /var/www/node_modules/node/bin/npm install --production --unsafe-perm
-  args:
-    chdir: /var/www
-
+    
 - name: Install node node.js package.
   command: "npm install npm@latest"
   args:
@@ -60,3 +55,10 @@
     force: yes
   with_items:
     - { src: '/var/www/node_modules/node/bin/node', dest: '/opt/node/bin/node' }
+
+- name: Install packages based on package.json.
+  command: /var/www/node_modules/node/bin/npm install --production --unsafe-perm
+  args:
+    chdir: /var/www
+
+
