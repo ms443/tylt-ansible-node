@@ -38,20 +38,20 @@
   register: node_version
  
 - name: Install node node.js package.
-  command: "npm install node@{{ node_version.stdout }} -g"
+  command: "npm install node@{{ node_version.stdout }}"
   args:
     chdir: /var/www
     
-#- name: Create symlinks to npm and node
-#  file:
-#    src: "{{ item.src }}"
-#    dest: "{{ item.dest }}"
-#    owner: root
-#    group: root
-#    state: link
-#    force: yes
-#  with_items:
-#    - { src: '/var/www/node_modules/node/bin/node', dest: '/opt/node/bin/node' }
+- name: Create symlinks to npm and node
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    state: link
+    force: yes
+  with_items:
+    - { src: '/var/www/node_modules/node/bin/node', dest: '/opt/node/bin/node' }
 
 - name: Install packages based on package.json.
   command: npm install --production --unsafe-perm
