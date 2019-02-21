@@ -34,29 +34,13 @@
 - name: Get node version
   command: node -p -e "require('/var/www/package.json').dependencies.node || '8.9.4'"
   register: node_version
-  
-- name: Install npm
-  command: npm install npm@5.6.0
-  args:
-    chdir: /var/www
  
-- name: Create symlinks to ruby and gem
-  file:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    owner: root
-    group: root
-    state: link
-    force: yes
-  with_items:
-    - { src: '/var/www/node_modules/node/bin/npm', dest: '/opt/node/bin/npm' }
-
 - name: Install default node node.js package.
   command: "npm install node@{{ node_version.stdout }} --unsafe-perm"
   args:
     chdir: /var/www
 
-- name: Create symlinks to ruby and gem
+- name: Create symlinks to npm and node
   file:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
@@ -66,6 +50,7 @@
     force: yes
   with_items:
     - { src: '/var/www/node_modules/node/bin/node', dest: '/opt/node/bin/node' }
+    - { src: '/var/www/node_modules/node/bin/npm', dest: '/opt/node/bin/npm' }
 
 - name: Install packages based on package.json.
   command: npm install --unsafe-perm --production --package-lock-only
