@@ -41,7 +41,7 @@
     chdir: /var/www
    
 - name: Install node node.js package.
-  command: "npm install npm@5.6.0 -g"
+  command: "npm install npm@latest -g"
   args:
     chdir: /var/www
     
