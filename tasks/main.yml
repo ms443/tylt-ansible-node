@@ -26,7 +26,7 @@
   command: rsync -auvh --checksum --delete --chown=root:root /tmp/nodeapp/ /var/www/ --exclude node_modules
 
 - name: Install strip-ansi
-  command: npm install strip-ansi -g
+  command: npm install strip-ansi npmlog -g
   
 - name: Install node node.js package.
   command: "npm install npm@latest -g"
@@ -38,7 +38,7 @@
   register: node_version
  
 - name: Install node node.js package.
-  command: "npm install node@{{ node_version.stdout }} --unsafe-perm"
+  command: "npm install node@{{ node_version.stdout }} -g"
   args:
     chdir: /var/www
     
