@@ -57,6 +57,6 @@
     - { src: '/var/www/node_modules/node/bin/node', dest: '/opt/node/bin/node' }
     
 - name: Install packages based on package.json.
-  command: npm install --unsafe-perm --production
+  command: npm install --unsafe-perm --production --package-lock-only
   args:
     chdir: /var/www
