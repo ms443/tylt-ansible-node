@@ -39,6 +39,11 @@
   command: "npm install node@{{ node_version.stdout }} --unsafe-perm"
   args:
     chdir: /var/www
+   
+- name: Install node node.js package.
+  command: "npm install npm@5.6.0 -g"
+  args:
+    chdir: /var/www
     
 - name: Create symlinks to npm and node
   file:
@@ -57,6 +62,6 @@
     chdir: /var/www
 
 - name: Install packages based on package.json.
-  command: npm install --unsafe-perm --production
+  command: /var/www/node_modules/node/bin/npm install --unsafe-perm --production
   args:
     chdir: /var/www
