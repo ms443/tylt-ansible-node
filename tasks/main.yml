@@ -35,11 +35,16 @@
   command: node -p -e "require('/var/www/package.json').dependencies.node || '8.9.4'"
   register: node_version
  
-- name: Install default node node.js package.
+- name: Install npm.
+  command: "npm install npm@5.6.0 -g"
+  args:
+    chdir: /var/www
+ 
+- name: Install node node.js package.
   command: "npm install node@{{ node_version.stdout }} --unsafe-perm"
   args:
     chdir: /var/www
-
+    
 - name: Create symlinks to npm and node
   file:
     src: "{{ item.src }}"
