@@ -25,11 +25,13 @@
 - name: Copy all node data
   command: rsync -auvh --checksum --delete --chown=root:root /tmp/nodeapp/ /var/www/ --exclude node_modules
 
-- name: Install "node-bin-setup" node.js package.
-  command: npm install node-bin-setup --unsafe-perm
+- name: Install strip-ansi
+  command: npm install strip-ansi -g
+  
+- name: Install node node.js package.
+  command: "npm install npm@latest -g"
   args:
     chdir: /var/www
-  ignore_errors: True
 
 - name: Get node version
   command: node -p -e "require('/var/www/package.json').dependencies.node || '8.9.4'"
@@ -37,11 +39,6 @@
  
 - name: Install node node.js package.
   command: "npm install node@{{ node_version.stdout }} --unsafe-perm"
-  args:
-    chdir: /var/www
-    
-- name: Install node node.js package.
-  command: "npm install npm@latest"
   args:
     chdir: /var/www
     
@@ -55,6 +52,12 @@
     force: yes
   with_items:
     - { src: '/var/www/node_modules/node/bin/node', dest: '/opt/node/bin/node' }
+
+- name: Install "node-bin-setup" node.js package.
+  command: npm install node-bin-setup --unsafe-perm
+  args:
+    chdir: /var/www
+  ignore_errors: True
 
 - name: Install packages based on package.json.
   command: /var/www/node_modules/node/bin/npm install --production --unsafe-perm
