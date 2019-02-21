@@ -28,7 +28,7 @@
 - name: Install strip-ansi
   command: npm install strip-ansi npmlog -g
   
-- name: Install node node.js package.
+- name: Install npm package.
   command: "npm install npm@latest -g"
   args:
     chdir: /var/www
@@ -42,16 +42,16 @@
   args:
     chdir: /var/www
     
-- name: Create symlinks to npm and node
-  file:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    owner: root
-    group: root
-    state: link
-    force: yes
-  with_items:
-    - { src: '/var/www/node_modules/node/bin/node', dest: '/opt/node/bin/node' }
+#- name: Create symlinks to npm and node
+#  file:
+#    src: "{{ item.src }}"
+#    dest: "{{ item.dest }}"
+#    owner: root
+#    group: root
+#    state: link
+#    force: yes
+#  with_items:
+#    - { src: '/var/www/node_modules/node/bin/node', dest: '/opt/node/bin/node' }
 
 - name: Install packages based on package.json.
   command: npm install --production --unsafe-perm
