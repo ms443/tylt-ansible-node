@@ -55,7 +55,11 @@
     force: yes
   with_items:
     - { src: '/var/www/node_modules/node/bin/node', dest: '/opt/node/bin/node' }
-    - { src: '/var/www/node_modules/node/bin/npm', dest: '/opt/node/bin/npm' }
+
+- name: Install npm.
+  command: "npm -v"
+  args:
+    chdir: /var/www
 
 - name: Install packages based on package.json.
   command: npm install --unsafe-perm --production --package-lock-only
