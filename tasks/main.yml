@@ -24,9 +24,6 @@
     
 - name: Copy all node data
   command: rsync -auvh --checksum --delete --chown=root:root /tmp/nodeapp/ /var/www/ --exclude node_modules
-
-- name: Install strip-ansi
-  command: npm install strip-ansi npmlog -g
   
 - name: Install npm package.
   command: "npm install npm@latest -g"
