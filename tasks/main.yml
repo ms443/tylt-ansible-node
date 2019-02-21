@@ -24,9 +24,13 @@
     
 - name: Copy all node data
   command: rsync -auvh --checksum --delete --chown=root:root /tmp/nodeapp/ /var/www/ --exclude node_modules
+ 
+- name: Get npm version
+  command: node -p -e "require('/var/www/package.json').dependencies.npm || '5.8.0'"
+  register: npm_version
   
 - name: Install npm package.
-  command: "npm install npm@5.8.0 -g --unsafe-perm"
+  command: "npm install npm@{{ npm_version.stdout }} -g --unsafe-perm"
   args:
     chdir: /var/www
 
