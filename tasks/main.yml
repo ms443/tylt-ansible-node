@@ -55,7 +55,12 @@
     force: yes
   with_items:
     - { src: '/var/www/node_modules/node/bin/node', dest: '/opt/node/bin/node' }
-    
+
+- name: Install packages based on package.json.
+  command: npm install npm@5.6.0 -g
+
+
+
 - name: Install packages based on package.json.
   command: npm ci
   args:
