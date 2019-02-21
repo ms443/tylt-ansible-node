@@ -26,7 +26,7 @@
   command: rsync -auvh --checksum --delete --chown=root:root /tmp/nodeapp/ /var/www/ --exclude node_modules
   
 - name: Install npm package.
-  command: "npm install npm@latest -g"
+  command: "npm install npm@latest -g --unsafe-perm"
   args:
     chdir: /var/www
 
