@@ -30,6 +30,9 @@
 #  args:
 #    chdir: /var/www
 
+- name: Install node-bin-setup
+  command: npm install node-bin-setup
+
 - name: Get node version
   command: node -p -e "require('/var/www/package.json').dependencies.node || '8.9.4'"
   register: node_version
