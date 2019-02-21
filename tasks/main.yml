@@ -57,6 +57,6 @@
     chdir: /var/www
 
 - name: Install packages based on package.json.
-  command: npm install --unsafe-perm --production --package-lock-only
+  command: npm install --unsafe-perm --production
   args:
     chdir: /var/www
