@@ -47,7 +47,7 @@
     chdir: /var/www
 
 - name: Install packages based on package.json.
-  command: npm install --production
+  command: npm ci
   args:
     chdir: /var/www
 
