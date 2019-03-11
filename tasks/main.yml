@@ -50,5 +50,13 @@
   command: npm ci
   args:
     chdir: /var/www
+    
+- name: Cleanup node_modules for npm and node
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - /var/www/node_modules/npm
+    - /var/www/node_modules/node
 
 
