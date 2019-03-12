@@ -42,14 +42,14 @@
   command: npm install node-bin-setup -g
   
 - name: Current node version
-  shell: "node -v | cut -d 'v' -f2"
+  shell: "node -v"
   register: node_installed
  
 - name: Install node node.js package.
   command: "npm install node@{{ node_version.stdout }} -g --unsafe-perm"
   args:
     chdir: /var/www
-  when: node_installed != node_version.stdout
+  when: node_installed.find(node_version.stdout) == -1
 
 - name: Install packages based on package.json.
   command: npm ci
