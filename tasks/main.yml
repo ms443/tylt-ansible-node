@@ -40,11 +40,16 @@
  
 - name: Install node-bin-setup
   command: npm install node-bin-setup -g
+  
+- name: Current node version
+  shell: "node -v | cut -d 'v' -f2"
+  register: node_installed
  
 - name: Install node node.js package.
   command: "npm install node@{{ node_version.stdout }} -g --unsafe-perm"
   args:
     chdir: /var/www
+  when: node_installed != node_version.stdout
 
 - name: Install packages based on package.json.
   command: npm ci
