@@ -44,6 +44,7 @@
 - name: Check current node version
   shell: test "$(node -v 2> /dev/null)" = v{{node_version.stdout}}
   register: nodejs_installed
+  ignore_errors: True
  
 - name: Install node node.js package.
   command: "npm install node@{{ node_version.stdout }} -g --unsafe-perm"
