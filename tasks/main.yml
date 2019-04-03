@@ -65,10 +65,14 @@
     - /var/www/node_modules/npm
     - /var/www/node_modules/node
 
-- name: Remove ruby package
+- name: Remove unnecessary package
   apt:
-    name: ruby
+    name: "{{ item }}"
     state: absent
+  with_items:
+    - ruby
+    - rsync
+    - git
 
 - name: Remove dependencies that are no longer required
   apt:
