@@ -53,7 +53,7 @@
   when: nodejs_installed|failed
 
 - name: Install packages based on package.json.
-  command: npm ci --only=production
+  command: npm ci
   args:
     chdir: /var/www
     
