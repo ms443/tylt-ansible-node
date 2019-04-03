@@ -46,6 +46,9 @@
 - name: Install node-bin-setup
   command: npm install node-bin-setup -g
   
+- name: Clear npm cache
+  command: npm cache clean --force
+  
 - name: Check current node version
   shell: test "$(node -v 2> /dev/null)" = v{{node_version.stdout}}
   register: nodejs_installed
