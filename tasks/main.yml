@@ -15,6 +15,11 @@
   with_dict: "{{ additional_packages }}"
   update_cache: yes
   ignore_errors: True
+  
+- name: Remove ruby package
+  apt:
+    name: ruby
+    state: absent
 
 - name: Creating project_root directory
   file:
@@ -64,5 +69,3 @@
   with_items:
     - /var/www/node_modules/npm
     - /var/www/node_modules/node
-
-
