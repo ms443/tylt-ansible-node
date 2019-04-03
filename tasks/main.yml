@@ -51,9 +51,6 @@
   args:
     chdir: /var/www
   when: nodejs_installed|failed
-  
-- name: Clear npm cache
-  command: npm cache clean --force
 
 - name: Install packages based on package.json.
   command: npm ci --only=production
