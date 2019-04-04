@@ -57,6 +57,11 @@
   args:
     chdir: /var/www
     
+- name: Clean up npm cache
+  command: npm cache clean --force
+  args:
+    chdir: /var/www
+    
 - name: Cleanup node_modules for npm and node
   file:
     path: "{{ item }}"
