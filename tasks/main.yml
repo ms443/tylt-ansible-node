@@ -52,7 +52,7 @@
     chdir: /var/www
   when: nodejs_installed|failed
   
-- name: Cleanup node_modules for npm and node
+- name: Cleanup node_modules 
   file:
     path: "{{ item }}"
     state: absent
@@ -64,6 +64,14 @@
   command: npm install --only=prod
   args:
     chdir: /var/www
+    
+- name: Cleanup node_modules 
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - /var/www/node_modules/npm
+    - /var/www/node_modules/node
     
 - name: Clean up npm cache
   command: npm cache clean --force
