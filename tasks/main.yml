@@ -53,7 +53,7 @@
   when: nodejs_installed|failed
 
 - name: Install packages based on package.json.
-  command: npm ci
+  command: npm ci || echo done
   args:
     chdir: /var/www
     
