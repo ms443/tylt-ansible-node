@@ -65,7 +65,7 @@
   args:
     chdir: /var/www
     
-- name: Cleanup node_modules 
+- name: Cleanup npm and node
   file:
     path: "{{ item }}"
     state: absent
