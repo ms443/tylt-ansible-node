@@ -65,7 +65,6 @@
     - /var/lib/apt/lists/
     - /var/www/node_modules/npm
     - /var/www/node_modules/node
-    - /opt/node/lib/node_modules/npm
 
 - name: Remove unnecessary package
   apt:
