@@ -52,13 +52,13 @@
     chdir: /var/www
   when: nodejs_installed|failed
   
-#- name: Cleanup npm and node
-#  file:
-#    path: /var/www/node_modules
-#    state: absent
+- name: Cleanup npm and node
+  file:
+    path: /var/www/node_modules
+    state: absent
 
 - name: Install packages based on package.json.
-  command: npm ci
+  command: npm install --only=prod
   args:
     chdir: /var/www
     
