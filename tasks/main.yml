@@ -35,7 +35,7 @@
     chdir: /var/www
 
 - name: Get node version
-  command: node -p -e "require('/var/www/package.json').dependencies.node || '8.9.4'"
+  command: node -p -e "require('/var/www/package.json').engines.node || '8.9.4'"
   register: node_version
  
 - name: Install node-bin-setup
