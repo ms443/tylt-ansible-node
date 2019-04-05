@@ -75,7 +75,7 @@
     chdir: /var/www
     
 - name: Update packages and their dependencies.
-  command: npm --depth 9999 update --verbose
+  command: npm update --verbose
   args:
     chdir: /var/www
     
