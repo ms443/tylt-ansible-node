@@ -62,11 +62,6 @@
   args:
     chdir: /var/www
     
-- name: Install packages based on package.json.
-  command: ls -la /var/www/node_modules
-  args:
-    chdir: /var/www
-    
 - name: Cleanup npm and node
   file:
     path: "{{ item }}"
