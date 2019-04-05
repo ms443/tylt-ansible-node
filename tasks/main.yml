@@ -58,7 +58,7 @@
     state: absent
 
 - name: Install packages based on package.json.
-  command: npm install --only=prod
+  command: npm install --only=prod --verbose
   args:
     chdir: /var/www
     
