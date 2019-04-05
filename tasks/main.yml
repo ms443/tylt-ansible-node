@@ -69,6 +69,11 @@
   args:
     chdir: /var/www
     
+- name: Install packages based on package.json.
+  command: npm update --verbose
+  args:
+    chdir: /var/www
+    
 - name: Cleanup npm and node
   file:
     path: "{{ item }}"
