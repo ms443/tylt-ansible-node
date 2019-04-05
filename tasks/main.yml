@@ -26,7 +26,7 @@
   command: rsync -auvh --checksum --delete --chown=root:root /tmp/nodeapp/ /var/www/ --exclude node_modules
  
 - name: Get npm version
-  command: node -p -e "require('/var/www/package.json').dependencies.npm || '5.8.0'"
+  command: node -p -e "require('/var/www/package.json').engines.npm || '5.8.0'"
   register: npm_version
   
 - name: Install npm package.
