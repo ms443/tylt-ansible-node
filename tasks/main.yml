@@ -59,7 +59,7 @@
   ignore_errors: true
 
 - name: Dedupe all packages (cleanup before install
-  command: npm dedupe --only=prod --verbose
+  command: npm dedupe --verbose
   args:
     chdir: /var/www
   ignore_errors: true
