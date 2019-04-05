@@ -80,6 +80,7 @@
     - rsync
     - git
     - perl
+    - nodejs
 
 - name: Remove dependencies that are no longer required
   apt:
