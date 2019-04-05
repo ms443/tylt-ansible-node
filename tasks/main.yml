@@ -51,9 +51,16 @@
   args:
     chdir: /var/www
   when: nodejs_installed|failed
+  
+- name: Cleanup npm and node
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - /var/www/node_modules
 
 - name: Install packages based on package.json.
-  command: rm -fr /var/www/node_modules && npm ci
+  command: npm ci
   args:
     chdir: /var/www
     
