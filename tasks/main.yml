@@ -52,16 +52,17 @@
     chdir: /var/www
   when: nodejs_installed|failed
  
-- name: Prune all packages (cleanup before install
+- name: Prune all packages (cleanup before install)
   command: npm prune --only=prod --verbose
   args:
     chdir: /var/www
   ignore_errors: true
 
-#- name: Cleanup npm and node
-#  file:
-#    path: /var/www/node_modules
-#    state: absent
+- name: Dedupe all packages (cleanup before install
+  command: npm dedupe --only=prod --verbose
+  args:
+    chdir: /var/www
+  ignore_errors: true
 
 - name: Install packages based on package.json.
   command: npm install --only=prod --verbose
