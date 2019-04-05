@@ -56,11 +56,16 @@
   file:
     path: /var/www/node_modules
     state: absent
-
+    
 - name: Install packages based on package.json.
-  command: npm install --only=prod
-  args:
-    chdir: /var/www
+  npm:
+    path: /var/www
+    production: yes
+
+#- name: Install packages based on package.json.
+#  command: npm install --only=prod
+#  args:
+#    chdir: /var/www
     
 - name: Cleanup npm and node
   file:
