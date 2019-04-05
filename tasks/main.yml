@@ -58,7 +58,7 @@
     chdir: /var/www
   ignore_errors: true
 
-- name: Dedupe all packages (cleanup before install
+- name: Dedupe all packages (cleanup before install)
   command: npm dedupe --verbose
   args:
     chdir: /var/www
@@ -69,7 +69,7 @@
   args:
     chdir: /var/www
     
-- name: Install packages based on package.json.
+- name: Update packages and their dependencies.
   command: npm --depth 9999 update --verbose
   args:
     chdir: /var/www
