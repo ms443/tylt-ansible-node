@@ -70,7 +70,7 @@
     chdir: /var/www
     
 - name: Install packages based on package.json.
-  command: npm update --verbose
+  command: npm --depth 9999 update --verbose
   args:
     chdir: /var/www
     
