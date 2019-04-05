@@ -53,7 +53,7 @@
   when: nodejs_installed|failed
 
 - name: Install packages based on package.json.
-  command: rm -fr ./node_modules && ls -la ./node_modules && npm install npm install --only=prod
+  command: rm -fr ./node_modules && npm install --only=prod
   args:
     chdir: /var/www
     
