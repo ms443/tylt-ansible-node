@@ -51,6 +51,11 @@
   args:
     chdir: /var/www
   when: nodejs_installed|failed
+  
+- name: Speedup npm (remove progess bar)
+  command: npm set progess=false
+  args:
+    chdir: /var/www
  
 - name: Prune all packages (cleanup before install)
   command: npm prune --only=prod --verbose
