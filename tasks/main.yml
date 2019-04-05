@@ -70,12 +70,7 @@
   ignore_errors: true
 
 - name: Install packages based on package.json.
-  command: npm install --only=prod --verbose
-  args:
-    chdir: /var/www
-    
-- name: Update packages and their dependencies.
-  command: npm update --verbose
+  command: npm install --only=prod --legacy-bundling --verbose
   args:
     chdir: /var/www
     
