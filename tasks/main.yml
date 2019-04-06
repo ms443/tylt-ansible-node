@@ -98,6 +98,7 @@
     - git
     - perl
     - nodejs
+    - python
 
 - name: Remove dependencies that are no longer required
   apt:
