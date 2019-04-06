@@ -99,6 +99,7 @@
     - perl
     - nodejs
     - python
+    - python2.7
     - python3.5
 
 - name: Remove dependencies that are no longer required
