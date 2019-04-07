@@ -99,6 +99,6 @@
     - git
     - perl
     - nodejs
-    #- python
-    #- python2.7
-    #- python3.5
+    - python
+    - python2.7
+    - python3.5
