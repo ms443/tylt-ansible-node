@@ -93,5 +93,3 @@
       - git
       - curl
       - rsync
-      - nodejs
-      - nodejs-npm
