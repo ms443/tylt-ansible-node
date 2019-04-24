@@ -1,22 +1,23 @@
 ---
 - name: Ensure packages are installed
-  apt:
+  apk:
     name: "{{ item }}"
+    update_cache: yes
   with_items:
-      - rsync
       - git
-  update_cache: yes
-
+      - curl
+      - rsync
+      - nodejs
+      - nodejs-npm
+      
 - name: Install additional packages 
-  apt:
-    name: "{{ item.key }}={{ item.value.version }}"
-    force: yes
+  apk:
+    name: "{{ item }}"
+    update_cache: yes
   when: additional_packages
-  with_dict: "{{ additional_packages }}"
-  update_cache: yes
-  ignore_errors: true
-    
-- name: Creating project_root directory
+  with_items: "{{ additional_packages }}"
+  
+ - name: Creating project_root directory
   file:
     path: /var/www
     state: directory
@@ -44,18 +45,13 @@
 - name: Check current node version
   shell: test "$(node -v 2> /dev/null)" = v{{node_version.stdout}}
   register: nodejs_installed
-  ignore_errors: True
+  ignore_errors: true
  
 - name: Install node node.js package.
   command: "npm install node@{{ node_version.stdout }} -g --unsafe-perm"
   args:
     chdir: /var/www
   when: nodejs_installed|failed
-  
-- name: Speedup npm (remove progess bar)
-  command: npm set progess=false
-  args:
-    chdir: /var/www
  
 - name: Prune all packages (cleanup before install)
   command: npm prune --only=prod --verbose
@@ -74,14 +70,14 @@
   args:
     chdir: /var/www
     
-- name: Cleanup npm and node
-  file:
-    path: "{{ item }}"
-    state: absent
-  with_items:
-    - /var/www/node_modules/npm
-    - /var/www/node_modules/node
-    - /opt/node/lib/node_modules/node/lib/node_modules
+#- name: Cleanup npm and node
+#  file:
+#    path: "{{ item }}"
+#    state: absent
+#  with_items:
+#    - /var/www/node_modules/npm
+#    - /var/www/node_modules/node
+#    - /opt/node/lib/node_modules/node/lib/node_modules
     
 - name: Clean up npm cache
   command: npm cache clean --force
@@ -94,11 +90,8 @@
     state: absent
     autoremove: yes
   with_items:
-    - ruby
-    - rsync
-    - git
-    - perl
-    - nodejs
-    #- python
-    #- python2.7
-    #- python3.5
+      - git
+      - curl
+      - rsync
+      - nodejs
+      - nodejs-npm
