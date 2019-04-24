@@ -9,6 +9,8 @@
       - rsync
       - nodejs
       - nodejs-npm
+      - libstdc++
+      - libgcc
       
 - name: Install additional packages 
   apk:
