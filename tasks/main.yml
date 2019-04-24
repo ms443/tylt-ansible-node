@@ -91,6 +91,4 @@
     state: absent
     autoremove: yes
   with_items:
-      - git
-      - curl
       - rsync
