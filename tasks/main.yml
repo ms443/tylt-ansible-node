@@ -17,7 +17,7 @@
   when: additional_packages
   with_items: "{{ additional_packages }}"
   
- - name: Creating project_root directory
+- name: Creating project_root directory
   file:
     path: /var/www
     state: directory
