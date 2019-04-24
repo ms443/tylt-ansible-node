@@ -40,7 +40,7 @@
   register: node_version
  
 - name: Install node-bin-setup
-  command: npm install node-bin-setup -g
+  command: npm install node-bin-setup -g --unsafe-perm
   
 - name: Check current node version
   shell: test "$(node -v 2> /dev/null)" = v{{node_version.stdout}}
