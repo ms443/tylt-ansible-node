@@ -85,10 +85,10 @@
   args:
     chdir: /var/www
 
-- name: Remove unnecessary package
-  apt:
-    name: "{{ item }}"
-    state: absent
-    autoremove: yes
-  with_items:
-      - rsync
+#- name: Remove unnecessary package
+#  apt:
+#    name: "{{ item }}"
+#    state: absent
+#    autoremove: yes
+#  with_items:
+#      - rsync
