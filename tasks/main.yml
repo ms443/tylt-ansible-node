@@ -16,7 +16,7 @@
   apk:
     name: "{{ item }}"
     update_cache: yes
-  when: additional_packages
+  when: additional_packages is defined
   with_items: "{{ additional_packages }}"
   
 - name: Creating project_root directory
