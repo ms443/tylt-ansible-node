@@ -93,5 +93,5 @@
   with_items:
       - git
       - rsync
-      - bash
-      - libstdc++
+      - nodejs
+      - nodejs-npm
